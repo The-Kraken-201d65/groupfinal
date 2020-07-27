@@ -16,7 +16,6 @@ OUTS
 - Display random images, after a user clicks a heart/thumb down the image doesn't show up again.
 - After hearting an image, the image is saved to the user profile.
 - Users can remove images from their "liked list" profile
-- Users can add comments in a reviews section
 
 ## Stretch Goals
 - Each image has its own bio that appears on initial image render

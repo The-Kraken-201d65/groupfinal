@@ -3,18 +3,17 @@ User Stories:
 
 - As a tourist, I want to find local hotspots so that I can enjoy my trip in the Philippines.
 Feature Task
-  Find local spots to visit / stay away from
-  Find more information about where I’m going / what I can do
-  Know how much $ to expect from my trip, coupons/discounts/seasonal stuff
+  Display local spots to visit / stay away from
+  Display information about where user is going / what they can do
+  Show how much $ to expect from users trip, coupons/discounts/seasonal stuff
 Acceptance Task
   Ensure that we are displaying locations the user wants to see 
   Ensure that each location has a bio/information about that place
-  Provide data from other users about “Their trip experience”
 
 
 - As a local, I want to convince my friends to visit the Philippines.
 Feature Task
-  Convince my friend to visit the Philippines
+  Provide data from other users about “Their trip experience”
 Acceptance Task
   Display great places to visit with user feedback
 
