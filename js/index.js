@@ -34,21 +34,44 @@ Location.prototype.renderLocations = function() {
 
 function clickHeartOnImage(event) {
 
-  var locationIndex = 0;
-  // if(Location.locationsArray[locationIndex].src === event.target.getAttribute('src')){
+  for(var locationIndex = 0; locationIndex < Location.locationsArray.length; locationIndex++){
 
-  Location.locationsArray[locationIndex].hearted = true;
+    // if(Location.locationsArray[locationIndex].src === event.target.getAttribute('src')){
+    if(Location.locationsArray[locationIndex].src === Location.locationsArray[locationArrayIndex-1].src){
 
-  // }
+      Location.locationsArray[locationIndex].hearted = true;
 
-  var stringyLocationsArray = JSON.stringify(Location.locationsArray);
-  localStorage.setItem('locations', stringyLocationsArray);
+    }
+
+  }
+
+  Location.locationsArray[0].saveToLocalStorage();
+
 
   displayLocationImage();
 
 }
 
 
+function clickThumbDownOnImage(event) {
+
+  for(var locationIndex = 0; locationIndex < Location.locationsArray.length; locationIndex++){
+
+    // if(Location.locationsArray[locationIndex].src === event.target.getAttribute('src')){
+    if(Location.locationsArray[locationIndex].src === Location.locationsArray[locationArrayIndex-1].src){
+
+      Location.locationsArray[locationIndex].thumbDown = true;
+
+    }
+
+  }
+
+  Location.locationsArray[0].saveToLocalStorage();
+
+
+  displayLocationImage();
+
+}
 
 var locationArrayIndex = 0;
 
@@ -65,17 +88,19 @@ function displayLocationImage() {
 
 // ============================ function calls ============================
 
-var listOfLocations = document.getElementById('hearted');
-listOfLocations.addEventListener('click', clickHeartOnImage);
+var heartButton = document.getElementById('hearted');
+heartButton.addEventListener('click', clickHeartOnImage);
 
-new Location('img1', 'images/kayangan-lake.jpg');
+var thumbDownButton = document.getElementById('thumbDown');
+thumbDownButton.addEventListener('click', clickThumbDownOnImage);
+
+new Location('kayangan-lake', 'images/kayangan-lake.jpg');
 new Location('river', 'images/river-natl-park.jpg');
 new Location('barracuda-lake', 'images/barracuda-lake.jpg');
 
 displayLocationImage();
 
-// var stringyLocationsArray = JSON.stringify(Location.locationsArray);
-// localStorage.setItem('locations', stringyLocationsArray);
+
 
 
 
