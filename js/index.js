@@ -16,7 +16,7 @@ function Location(name, src) {
 
 }
 
-Location.prototype.saveToLocalStorage = function() {
+Location.prototype.saveToLocalStorage = function () {
   // saves the current state of Location.locationsArray to local storage
   // to be retrieved in the profile
   var stringyLocations = JSON.stringify(Location.locationsArray);
@@ -24,7 +24,7 @@ Location.prototype.saveToLocalStorage = function() {
 };
 
 //renders img to index.html
-Location.prototype.renderLocations = function() {
+Location.prototype.renderLocations = function () {
 
   var target = document.getElementById('List-of-Images');
   var locationImg = document.createElement('img');
@@ -49,8 +49,9 @@ function clickHeartOnImage(event) {
 
   displayLocationImage();
 
-}
 
+
+}
 
 
 var locationArrayIndex = 0;
@@ -77,13 +78,54 @@ new Location('barracuda-lake', 'images/barracuda-lake.jpg');
 
 displayLocationImage();
 
- 
- 
+
+
 // feel free to move this line anywhere, just using for testing for now
 Location.locationsArray[0].saveToLocalStorage();
 
 
+//===============
 
+var commentSection = document.getElementById('addcomments');
+commentSection.addEventListener('submit', createAComment);
+
+function createAComment(event) {
+  event.preventDefault()
+
+  var comments = event.target.commentInput.value
+  var nameComments = event.target.nameInput.value
+
+  var cmSection = document.getElementById('commentsection')
+  var listItem = document.createElement('li');
+  listItem.textContent = nameComments + ' : ' + comments;
+  cmSection.appendChild(listItem);
+
+}
+
+var comment = document.getElementById('List-Of-Images');
+function loadComment() {
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+  // DONE: Find the table body
+
+  // DONE: Iterate over the items in the cart
+
+
+
+//================
 
 
 
