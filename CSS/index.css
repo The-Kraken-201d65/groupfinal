@@ -35,15 +35,21 @@ article > img:first-of-type {
   width: 150px;
 }
 
+article > #thumbDown {
+  height: 250px;
+  width: 25px;
+}
+
 article > div {
   display: inline-block;
   height: 300px;
   width: 200px;
 }
-/* article > img:nth-last-of-type(2) {
+
+article > img:nth-last-of-type() {
   height: 250px;
-  width: 300px
-} */
+  width: 150px;
+}
 
 article > img:last-of-type {
   height: 250px;
