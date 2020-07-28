@@ -38,6 +38,8 @@ new Location('barracuda-lake', 'images/barracuda-lake.jpg');
 
 Location.locationsArray[1].renderLocations();
 
+// feel free to move this line anywhere, just using for testing for now
+Location.locationsArray[0].saveToLocalStorage();
 
 
 
