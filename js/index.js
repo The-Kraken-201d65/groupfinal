@@ -9,6 +9,9 @@ function Location(name, src) {
   this.src = src;
   this.hearted = false;
   this.thumbDown = false;
+
+
+
   Location.locationsArray.push(this);
 
 }
@@ -78,6 +81,9 @@ displayLocationImage();
  
 // feel free to move this line anywhere, just using for testing for now
 Location.locationsArray[0].saveToLocalStorage();
+
+
+
 
 
 

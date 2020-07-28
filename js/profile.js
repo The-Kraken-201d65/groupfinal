@@ -4,6 +4,7 @@
 
 Location.locationsArray = [];
 
+
 function Location(name, src) {
   this.name = name;
   this.src = src;
@@ -28,8 +29,49 @@ function retrieveLocationsFromStorage() {
     new Location(unlabeledLocations[i].name, unlabeledLocations[i].src);
   }
 }
+//===============================
+
+Location.prototype.displayHeartedImages = function(){
+  console.log(Location.locationsArray);
+  for (var i = 0; i < Location.locationsArray.length; i ++){
+    if( Location.locationsArray[i].hearted === true){
+      console.log('test');
+      var heartedImages = document.getElementById('heartedimagelist');
+      var listedImage = document.createElement('img');
+      listedImage.src = Location.locationsArray[i].src;
+      heartedImages.appendChild(listedImage);
+    } else if(Location.locationsArray[i].hearted  === false){
+      var heartedImages = document.getElementById('heartedimagelist');
+      var listedImage = document.createElement('img');
+      listedImage.textContent = '';
+      heartedImages.appendChild(listedImage);
+    }
+//================================
+      
+
+    }
+  }
+  retrieveLocationsFromStorage();
+  Location.locationsArray[0].displayHeartedImages(); 
+
+
+
+
+  
+
+    
+    
+   
+ 
+
+
+
+
+
+
 
 // this line fills Location.locationArray with the objects in local storage
-retrieveLocationsFromStorage();
+
+//============================
 
 
