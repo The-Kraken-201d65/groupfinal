@@ -5,10 +5,10 @@
 Location.locationsArray = [];
 
 
-function Location(name, src) {
+function Location(name, src, hearted) {
   this.name = name;
   this.src = src;
-  this.hearted = false;
+  this.hearted = hearted || false;
   this.thumbDown = false;
   Location.locationsArray.push(this);
 }
@@ -26,7 +26,10 @@ function retrieveLocationsFromStorage() {
   var stringyLocations = localStorage.getItem('locationsArray');
   var unlabeledLocations = JSON.parse(stringyLocations);
   for (var i = 0; i < unlabeledLocations.length; i++) {
-    new Location(unlabeledLocations[i].name, unlabeledLocations[i].src);
+    new Location(
+      unlabeledLocations[i].name,
+      unlabeledLocations[i].src,
+      unlabeledLocations[i].hearted);
   }
 }
 //===============================
