@@ -2,7 +2,7 @@
 
 Location.locationsArray = [];
 
-var Location = function(name, src) {
+function Location(name, src) {
   this.name = name;
   this.src = src;
   this.hearted = false;
