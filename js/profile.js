@@ -89,16 +89,16 @@ Steps to remove an image from display:
   - set corresponding location .hearted = false
   - save updated object list to local storage
 
-TODO: test and updated to match with testbranch
+DONE: test and updated to match with testbranch
 */
 
 function renderRemoveButton() {
   // This function checks how many hearted images are displayed and adds
   // a text 'X' next to each image
 
-  var imageUlEl = document.querySelector('main > div > ul');
-  for (var childEl = 0; childEl < imageUlEl.children.length; childEl++) {
-    var thisChildEl = imageUlEl.children[childEl];
+  var imageElArray = document.querySelectorAll('main > div > ul > li > img');
+  // var imageCount = imageLiEl.children.length;
+  for (var childEl = 0; childEl < imageElArray.length; childEl++) {
     var xTextEl = document.createElement('p');
 
     xTextEl.textContent = 'X';
@@ -109,7 +109,10 @@ function renderRemoveButton() {
     xTextEl.style.float = 'left';
     xTextEl.style.marginTop = '100px';
 
-    thisChildEl.appendChild(xTextEl);
+    // reference for adding an element before another
+    // https://www.w3schools.com/jsref/met_node_insertbefore.asp
+    imageElArray[childEl].parentNode.insertBefore(xTextEl, imageElArray[childEl + 1]);
+
   }
 }
 
