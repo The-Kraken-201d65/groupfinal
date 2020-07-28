@@ -74,8 +74,11 @@ new Location('barracuda-lake', 'images/barracuda-lake.jpg');
 
 displayLocationImage();
 
-// var stringyLocationsArray = JSON.stringify(Location.locationsArray);
-// localStorage.setItem('locations', stringyLocationsArray);
+ 
+ 
+// feel free to move this line anywhere, just using for testing for now
+Location.locationsArray[0].saveToLocalStorage();
+
 
 
 
