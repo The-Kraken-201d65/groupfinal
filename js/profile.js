@@ -29,6 +29,7 @@ function retrieveLocationsFromStorage() {
   }
 }
 
-
+// this line fills Location.locationArray with the objects in local storage
+retrieveLocationsFromStorage();
 
 
