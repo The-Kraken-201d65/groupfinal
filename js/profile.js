@@ -33,3 +33,70 @@ function retrieveLocationsFromStorage() {
 retrieveLocationsFromStorage();
 
 
+
+// === Jack adding "remove hearted image" functionality ===
+/*
+Steps to remove an image from display:
+1. DONE: create a "x" to click next to each image (doing this step last)
+2. DONE: make event listener to watch for clicks on x's
+3. DONE: create event handler function that will:
+  - remove image from displayed images
+  - set corresponding location .hearted = false
+  - save updated object list to local storage
+
+TODO: test and updated to match with testbranch
+*/
+
+function renderRemoveButton() {
+  // This function checks how many hearted images are displayed and adds
+  // a text 'X' next to each image
+
+  var imageUlEl = document.querySelector('main > div > ul');
+  for (var childEl = 0; childEl < imageUlEl.children.length; childEl++) {
+    var thisChildEl = imageUlEl.children[childEl];
+    var xTextEl = document.createElement('p');
+
+    xTextEl.textContent = 'X';
+    xTextEl.id = 'removeHearted';
+    xTextEl.style.height = '20px';
+    xTextEl.style.width = '20px';
+    xTextEl.style.color = 'red';
+    xTextEl.style.float = 'left';
+    xTextEl.style.marginTop = '100px';
+
+    thisChildEl.appendChild(xTextEl);
+  }
+}
+
+function handleHeartedImageRemoval(event) {
+  if (event.srcElement.id === 'removeHearted') {
+    // accessing the previous sibling node
+    // https://www.w3schools.com/jsref/prop_node_previoussibling.asp
+    var xTextEl = event.srcElement;
+    var imageEl = xTextEl.previousSibling;
+    // retrieving the src text of an img
+    // https://stackoverflow.com/questions/10843322/getting-img-src-value-path-name
+    var srcReference = imageEl.getAttribute('src');
+    // removing a targeted element
+    // https://www.w3schools.com/JSREF/met_element_remove.asp
+    xTextEl.remove();
+    imageEl.remove();
+
+    for (var i = 0; i < Location.locationsArray.length; i++) {
+      if (Location.locationsArray[i].src === srcReference) {
+        Location.locationsArray[i].hearted = false;
+      }
+    }
+
+    Location.locationsArray[0].saveToLocalStorage();
+  }
+}
+
+renderRemoveButton();
+
+var imageUlEl = document.querySelector('main > div > ul');
+imageUlEl.addEventListener('click', handleHeartedImageRemoval);
+
+
+
+
