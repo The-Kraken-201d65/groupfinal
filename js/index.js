@@ -103,10 +103,7 @@ new Location('barracuda-lake', 'images/barracuda-lake.jpg');
 
 displayLocationImage();
 
- 
- 
-// feel free to move this line anywhere, just using for testing for now
-Location.locationsArray[0].saveToLocalStorage();
+
 
 
 
