@@ -7,6 +7,9 @@ var Location = function(name, src) {
   this.src = src;
   this.hearted = false;
   this.thumbDown = false;
+
+
+
   Location.locationsArray.push(this);
 }
 
@@ -16,6 +19,9 @@ Location.prototype.saveToLocalStorage = function() {
   var stringyLocations = JSON.stringify(Location.locationsArray);
   localStorage.setItem('locationsArray', stringyLocations);
 };
+
+
+
 
 
 
