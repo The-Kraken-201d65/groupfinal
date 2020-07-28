@@ -13,6 +13,10 @@ nav {
 nav > ul > li {
   display: inline;
   font-size: 20px;
+}
+
+a {
+  text-decoration: none;
   color: seagreen;
 }
 
@@ -45,6 +49,11 @@ article > #thumbDown {
 
 article > div {
   display: inline-block;
+  height: 300px;
+  width: 500px;
+}
+
+article > div > img {
   height: 300px;
   width: 500px;
 }
