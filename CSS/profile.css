@@ -45,8 +45,10 @@ body > main > div > h2 {
 }
 
 body > main > div > img {
-  padding-top: 5px;
+  padding-top: 17px;
   padding-left: 5px;
+  height: 25px;
+  width: 25px;
 }
 
 body > main > div > ul > li > img {

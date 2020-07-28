@@ -79,7 +79,10 @@ body > div:nth-last-of-type(2) {
 form {
   padding: 10px;
   float: left;
-  
+}
+
+form > legend > input {
+  height: 35px;
 }
 
 body > div:last-of-type {
