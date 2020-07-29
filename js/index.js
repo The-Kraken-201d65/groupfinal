@@ -142,20 +142,36 @@ if(parsedLocations !== null){
 
 var commentSection = document.getElementById('addcomments');
 commentSection.addEventListener('submit', createAComment);
+var commentsArray = [];
 
 function createAComment(event) {
   event.preventDefault()
-
   var comments = event.target.commentInput.value
   var nameComments = event.target.nameInput.value
-
+  //saves the info
+  commentsArray.push(nameComments + ' : ' + comments)
+  var stringyComment = JSON.stringify(commentsArray);
+  localStorage.setItem('commentsection', stringyComment);
+ 
+  // display info
   var cmSection = document.getElementById('commentsection')
   var listItem = document.createElement('li');
   listItem.textContent = nameComments + ' : ' + comments;
   cmSection.appendChild(listItem);
 
 }
-
+// display the saved info
+var commentFromStorage = localStorage.getItem('commentsection');
+if(commentFromStorage !== null){
+  var parsedComment = JSON.parse(commentFromStorage);
+  commentsArray = parsedComment;
+  for(var i = 0; i < commentsArray.length; i++){
+    var cmSection = document.getElementById('commentsection');
+    var listItem = document.createElement('li');
+    listItem.textContent = parsedComment[i];
+    cmSection.appendChild(listItem);
+  }
+}
 
 
 
