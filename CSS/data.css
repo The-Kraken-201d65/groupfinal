@@ -1,9 +1,25 @@
 main {
   margin-top: 40px;
+  background-color: #b9f7f1;
 }
 
-
+.chartContainer {
+  width: 840px;
+  height: 340px;
+  margin: 0 auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
 
 h2 {
   font-size: larger;
+  height: 40px;
+  padding-top: 5px;
+  padding-left: 5px;
+  box-sizing: border-box;
+}
+
+canvas {
+  display: block;
+  margin: auto;
 }
