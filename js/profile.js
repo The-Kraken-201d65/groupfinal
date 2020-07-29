@@ -46,17 +46,21 @@ Location.prototype.displayHeartedImages = function(){
     } 
     }
 //================================
+  } 
+
+  
+  
+
+  
       
 
-    }
-  
   retrieveLocationsFromStorage();
   Location.locationsArray[0].displayHeartedImages(); 
 
 
 
 
-  
+
 
     
     
