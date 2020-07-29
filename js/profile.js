@@ -43,17 +43,13 @@ Location.prototype.displayHeartedImages = function(){
       var listedImage = document.createElement('img');
       listedImage.src = Location.locationsArray[i].src;
       heartedImages.appendChild(listedImage);
-    } else if(Location.locationsArray[i].hearted  === false){
-      var heartedImages = document.getElementById('heartedimagelist');
-      var listedImage = document.createElement('img');
-      listedImage.textContent = '';
-      heartedImages.appendChild(listedImage);
+    } 
     }
 //================================
       
 
     }
-  }
+  
   retrieveLocationsFromStorage();
   Location.locationsArray[0].displayHeartedImages(); 
 
