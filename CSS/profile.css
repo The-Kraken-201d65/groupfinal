@@ -78,8 +78,14 @@ body > main > div > ul > li > img {
   width: 150px;
 }
 
+
+.dark-mode {
+  background-color: black;
+  color: white;
+}
 main > div > ul > li > img > p {
   font-size: 25px;
+
 }
 
 footer{
