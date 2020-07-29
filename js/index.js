@@ -41,6 +41,7 @@ function clickHeartOnImage(event) {
 
 
   if(totalClicks === roundsOfClicks){
+    console.log('clickHeartOnImage-if');
 
     var imageList = document.getElementById('List-of-Images');
     imageList.innerHTML = '';
@@ -61,20 +62,24 @@ function clickHeartOnImage(event) {
 
     Location.locationsArray[0].saveToLocalStorage();
 
+
+    console.log('clickHeartOnImage-else');
+
     locationArrayIndex++;
-    displayLocationImage();
+    totalClicks++;
+    if(totalClicks !== roundsOfClicks){
+      displayLocationImage();
+    } else{
+      clickHeartOnImage();
+    }
+
 
   }
-
-  totalClicks++;
-
 
 }
 
 
 function clickThumbDownOnImage(event) {
-
-  // totalClicks++;
 
   if(totalClicks === roundsOfClicks){
 
@@ -97,13 +102,19 @@ function clickThumbDownOnImage(event) {
 
     Location.locationsArray[0].saveToLocalStorage();
 
+    console.log('clickThumbDownOnImage-else');
 
     locationArrayIndex++;
-    displayLocationImage();
+    totalClicks++;
+    if(totalClicks !== roundsOfClicks){
+      displayLocationImage();
+    } else{
+      clickThumbDownOnImage();
+    }
 
   }
 
-  totalClicks++;
+  // totalClicks++;
 
 }
 
@@ -148,6 +159,8 @@ if(parsedLocations !== null){
   var parsedcurrentIndexOfLastImage = JSON.parse(currentIndexOfLastImageFromLocalStorage);
 
   locationArrayIndex = parsedcurrentIndexOfLastImage;
+
+  totalClicks = parsedcurrentIndexOfLastImage;
 
 
   displayLocationImage();
