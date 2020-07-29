@@ -23,12 +23,9 @@ a {
 
 
 img:hover  {
-
- 
   background: url(/images/imgPlaceHold.png) no-repeat center center;
   background-size: cover;
   background-image: url(/images/imgPlaceHold2.png); width: 350px; height: 200px;
-
 }
 
 
@@ -36,13 +33,13 @@ header > div:first-of-type {
   border-top: solid black 1px;
   border-right: solid black 1px;
   border-left: solid black 1px;
+  padding-bottom: 2px;
   float: left;
-  padding:30px;
 }
 
 header > div > img {
-  height: 25px;
-  width: 25px;
+  height: 55px;
+  width: 80px;
 }
 
 header > div:last-child {
