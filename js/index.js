@@ -2,7 +2,7 @@
 
 Location.locationsArray = [];
 var totalClicks = 0;
-var roundsOfClicks = 3;
+var roundsOfClicks = 10;
 
 //constructor
 function Location(name, src) {
@@ -154,9 +154,17 @@ if(parsedLocations !== null){
 
 
 } else {
-  new Location('kayangan-lake', 'images/kayangan-lake.jpg');
-  new Location('river', 'images/river-natl-park.jpg');
-  new Location('barracuda-lake', 'images/barracuda-lake.jpg');
+  new Location('kayangan-lake', 'images/1 kayangan-lake.jpg');
+  new Location('river', 'images/2 river-natl-park.jpg');
+  new Location('barracuda-lake', 'images/3 barracuda lake.jpg');
+  new Location('tubbataha Reef', 'images/4 tubbataha-reef-philippines.jpg');
+  new Location('Nacpan beach', 'images/5 Nacpan-Beach-Palawan-Cover-min.jpg');
+  new Location('Nacpan beach', 'images/6 big lagoon.jpg');
+  new Location('Nacpan beach', 'images/7 Port_Barton-aerial-10.jpg');
+  new Location('Nacpan beach', 'images/8 Twin-Lagoon-El-Nido-Palawan-Philippines.jpg');
+  new Location('Nacpan beach', 'images/9 ugong rock adventures.jpg');
+  new Location('Nacpan beach', 'images/10 estrella falls.jpg');
+
 
   displayLocationImage();
 
