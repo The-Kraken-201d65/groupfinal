@@ -1,6 +1,7 @@
 'user strict';
 
 Location.locationsArray = [];
+var totalClicks = 0;
 
 //constructor
 function Location(name, src) {
@@ -37,10 +38,12 @@ Location.prototype.renderLocations = function() {
 
 function clickHeartOnImage(event) {
 
+  totalClicks++;
+
   for(var locationIndex = 0; locationIndex < Location.locationsArray.length; locationIndex++){
 
     // if(Location.locationsArray[locationIndex].src === event.target.getAttribute('src')){
-    if(Location.locationsArray[locationIndex].src === Location.locationsArray[locationArrayIndex-1].src){
+    if(Location.locationsArray[locationIndex].src === Location.locationsArray[locationArrayIndex].src){
 
       Location.locationsArray[locationIndex].hearted = true;
 
@@ -50,7 +53,7 @@ function clickHeartOnImage(event) {
 
   Location.locationsArray[0].saveToLocalStorage();
 
-
+  locationArrayIndex++;
   displayLocationImage();
 
 }
@@ -61,7 +64,7 @@ function clickThumbDownOnImage(event) {
   for(var locationIndex = 0; locationIndex < Location.locationsArray.length; locationIndex++){
 
     // if(Location.locationsArray[locationIndex].src === event.target.getAttribute('src')){
-    if(Location.locationsArray[locationIndex].src === Location.locationsArray[locationArrayIndex-1].src){
+    if(Location.locationsArray[locationIndex].src === Location.locationsArray[locationArrayIndex].src){
 
       Location.locationsArray[locationIndex].thumbDown = true;
 
@@ -72,6 +75,7 @@ function clickThumbDownOnImage(event) {
   Location.locationsArray[0].saveToLocalStorage();
 
 
+  locationArrayIndex++;
   displayLocationImage();
 
 }
@@ -83,8 +87,10 @@ function displayLocationImage() {
   var currentImage = document.getElementById('List-of-Images');
   currentImage.innerHTML = '';
   Location.locationsArray[locationArrayIndex].renderLocations();
-  locationArrayIndex++;
+  // locationArrayIndex++;
 
+  var stringyCurrentLocationArrayIndex = JSON.stringify(locationArrayIndex);
+  localStorage.setItem('currentIndexOfLastImage', stringyCurrentLocationArrayIndex);
 
 }
 
@@ -97,11 +103,34 @@ heartButton.addEventListener('click', clickHeartOnImage);
 var thumbDownButton = document.getElementById('thumbDown');
 thumbDownButton.addEventListener('click', clickThumbDownOnImage);
 
-new Location('kayangan-lake', 'images/kayangan-lake.jpg');
-new Location('river', 'images/river-natl-park.jpg');
-new Location('barracuda-lake', 'images/barracuda-lake.jpg');
+var locationsFromLocalStorage = localStorage.getItem('locationsArray');
+var parsedLocations = JSON.parse(locationsFromLocalStorage);
 
-displayLocationImage();
+
+if(parsedLocations !== null){
+
+  for(var i = 0; i < parsedLocations.length; i++){
+
+    var reconstituedLocations = new Location(parsedLocations[i].name, parsedLocations[i].src, parsedLocations[i].hearted, parsedLocations[i].thumbDown);
+
+  }
+
+  var currentIndexOfLastImageFromLocalStorage = localStorage.getItem('currentIndexOfLastImage');
+  var parsedcurrentIndexOfLastImage = JSON.parse(currentIndexOfLastImageFromLocalStorage);
+
+  locationArrayIndex = parsedcurrentIndexOfLastImage;
+
+  displayLocationImage();
+
+} else {
+  new Location('kayangan-lake', 'images/kayangan-lake.jpg');
+  new Location('river', 'images/river-natl-park.jpg');
+  new Location('barracuda-lake', 'images/barracuda-lake.jpg');
+
+  displayLocationImage();
+
+}
+
 
 
 
