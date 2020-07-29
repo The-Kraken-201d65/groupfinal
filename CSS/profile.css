@@ -59,6 +59,10 @@ body > main > div > ul > li > img {
   width: 150px;
 }
 
+main > div > ul > li > img > p {
+  font-size: 25px;
+}
+
 footer{
 
 }
