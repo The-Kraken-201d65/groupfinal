@@ -1,7 +1,5 @@
 'user strict';
 
-
-
 Location.locationsArray = [];
 
 

@@ -1,5 +1,6 @@
 'user strict';
 
+
 Location.locationsArray = [];
 var totalClicks = 0;
 var roundsOfClicks = 10;
