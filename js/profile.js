@@ -53,9 +53,10 @@ Location.prototype.displayHeartedImages = function(){
 
   
       
-
+if (localStorage.getItem('locationsArray')) {
   retrieveLocationsFromStorage();
-  Location.locationsArray[0].displayHeartedImages(); 
+  Location.locationsArray[0].displayHeartedImages();
+}
 
 
 
