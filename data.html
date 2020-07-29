@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bisita.co</title>
   <link rel="stylesheet" href="CSS/reset.css">
+  <link rel="stylesheet" href="CSS/index.css">
   <link rel="stylesheet" href="CSS/data.css">
 </head>
 
@@ -14,10 +15,10 @@
 
     <nav>
       <ul>
-        <li><a href="index.html"></a></li>
-        <li><a href="profile.html"></a></li>
-        <li><a href="about.html"></a></li>
-        <li><a href="data.html"></a></li>
+        <li><a href="index.html"> Home |</a></li>
+        <li><a href="profile.html"> Profile |</a></li>
+        <li><a href="about.html"> About Us |</a></li>
+        <li><a href="data.html"> Data </a></li>
       </ul>
     </nav>
 
@@ -27,7 +28,10 @@
 
   <main>
 
-    
+    <div class="chartContainer">
+      <h2>Locations By Popularity:</h2>
+      <canvas id="popularLocations" width="840px" height="300px"></canvas>
+    </div>
 
   </main>
 
@@ -35,6 +39,7 @@
 
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
   <script src="js/data.js"></script>
 </body>
 </html>

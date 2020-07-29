@@ -99,3 +99,11 @@ body > div:last-of-type > ul > li {
   padding-bottom: 5px;
   border-bottom: solid black 1px;
 }
+
+button{
+  float: right;
+}
+.dark-mode {
+  background-color: black;
+  color: white;
+}

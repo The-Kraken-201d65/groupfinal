@@ -44,10 +44,14 @@ Location.prototype.displayHeartedImages = function(){
     } 
     }
 //================================
+  } 
+
+  
+  
+
+  
       
 
-    }
-  
   retrieveLocationsFromStorage();
   Location.locationsArray[0].displayHeartedImages(); 
 
@@ -58,6 +62,7 @@ Location.prototype.displayHeartedImages = function(){
 // when submit button is hit, render allAvatar[i].src
 // create a function that renders allAvatar[i].src
 
+
 function addItemsToAvatar (){
   var selectElement = document.getElementById('avatar-selection');
   for (var i in Avatar.allAvatar) {
@@ -66,6 +71,7 @@ function addItemsToAvatar (){
     selectElement.appendChild(optionElement);
     }
   }
+
  
 var Avatar = function(src, name) {
   this.src = src;

@@ -2,6 +2,7 @@
 
 Location.locationsArray = [];
 var totalClicks = 0;
+var roundsOfClicks = 10;
 
 //constructor
 function Location(name, src) {
@@ -38,25 +39,34 @@ Location.prototype.renderLocations = function () {
 
 function clickHeartOnImage(event) {
 
-  totalClicks++;
 
-  for(var locationIndex = 0; locationIndex < Location.locationsArray.length; locationIndex++){
+  if(totalClicks === roundsOfClicks){
 
-    // if(Location.locationsArray[locationIndex].src === event.target.getAttribute('src')){
-    if(Location.locationsArray[locationIndex].src === Location.locationsArray[locationArrayIndex].src){
+    var imageList = document.getElementById('List-of-Images');
+    imageList.innerHTML = '';
 
-      Location.locationsArray[locationIndex].hearted = true;
+    heartButton.removeEventListener('click', clickHeartOnImage);
+  } else{
+
+    for(var locationIndex = 0; locationIndex < Location.locationsArray.length; locationIndex++){
+
+      // if(Location.locationsArray[locationIndex].src === event.target.getAttribute('src')){
+      if(Location.locationsArray[locationIndex].src === Location.locationsArray[locationArrayIndex].src){
+
+        Location.locationsArray[locationIndex].hearted = true;
+
+      }
 
     }
 
+    Location.locationsArray[0].saveToLocalStorage();
+
+    locationArrayIndex++;
+    displayLocationImage();
+
   }
 
-  Location.locationsArray[0].saveToLocalStorage();
-
-  locationArrayIndex++;
-  displayLocationImage();
-
-
+  totalClicks++;
 
 
 }
@@ -64,22 +74,36 @@ function clickHeartOnImage(event) {
 
 function clickThumbDownOnImage(event) {
 
-  for(var locationIndex = 0; locationIndex < Location.locationsArray.length; locationIndex++){
+  // totalClicks++;
 
-    // if(Location.locationsArray[locationIndex].src === event.target.getAttribute('src')){
-    if(Location.locationsArray[locationIndex].src === Location.locationsArray[locationArrayIndex].src){
+  if(totalClicks === roundsOfClicks){
 
-      Location.locationsArray[locationIndex].thumbDown = true;
+    var imageList = document.getElementById('List-of-Images');
+    imageList.innerHTML = '';
+
+    thumbDownButton.removeEventListener('click', clickThumbDownOnImage);
+  } else{
+
+    for(var locationIndex = 0; locationIndex < Location.locationsArray.length; locationIndex++){
+
+      // if(Location.locationsArray[locationIndex].src === event.target.getAttribute('src')){
+      if(Location.locationsArray[locationIndex].src === Location.locationsArray[locationArrayIndex].src){
+
+        Location.locationsArray[locationIndex].thumbDown = true;
+
+      }
 
     }
 
+    Location.locationsArray[0].saveToLocalStorage();
+
+
+    locationArrayIndex++;
+    displayLocationImage();
+
   }
 
-  Location.locationsArray[0].saveToLocalStorage();
-
-
-  locationArrayIndex++;
-  displayLocationImage();
+  totalClicks++;
 
 }
 
@@ -113,6 +137,7 @@ var parsedLocations = JSON.parse(locationsFromLocalStorage);
 
 if(parsedLocations !== null){
 
+
   for(var i = 0; i < parsedLocations.length; i++){
 
     var reconstituedLocations = new Location(parsedLocations[i].name, parsedLocations[i].src, parsedLocations[i].hearted, parsedLocations[i].thumbDown);
@@ -124,12 +149,22 @@ if(parsedLocations !== null){
 
   locationArrayIndex = parsedcurrentIndexOfLastImage;
 
+
   displayLocationImage();
 
+
 } else {
-  new Location('kayangan-lake', 'images/kayangan-lake.jpg');
-  new Location('river', 'images/river-natl-park.jpg');
-  new Location('barracuda-lake', 'images/barracuda-lake.jpg');
+  new Location('kayangan-lake', 'images/1 kayangan-lake.jpg');
+  new Location('river', 'images/2 river-natl-park.jpg');
+  new Location('barracuda-lake', 'images/3 barracuda lake.jpg');
+  new Location('tubbataha Reef', 'images/4 tubbataha-reef-philippines.jpg');
+  new Location('Nacpan beach', 'images/5 Nacpan-Beach-Palawan-Cover-min.jpg');
+  new Location('Nacpan beach', 'images/6 big lagoon.jpg');
+  new Location('Nacpan beach', 'images/7 Port_Barton-aerial-10.jpg');
+  new Location('Nacpan beach', 'images/8 Twin-Lagoon-El-Nido-Palawan-Philippines.jpg');
+  new Location('Nacpan beach', 'images/9 ugong rock adventures.jpg');
+  new Location('Nacpan beach', 'images/10 estrella falls.jpg');
+
 
   displayLocationImage();
 
@@ -172,6 +207,13 @@ if(commentFromStorage !== null){
     cmSection.appendChild(listItem);
   }
 }
+
+
+function myDarkMode() {
+  var element = document.body;
+  element.classList.toggle("dark-mode");
+}
+
 
 
 

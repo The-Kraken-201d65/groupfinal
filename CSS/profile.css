@@ -20,6 +20,18 @@ a {
   color: seagreen;
 }
 
+
+
+img:hover  {
+
+ 
+  background: url(/images/imgPlaceHold.png) no-repeat center center;
+  background-size: cover;
+  background-image: url(/images/imgPlaceHold2.png); width: 350px; height: 200px;
+
+}
+
+
 header > div:first-of-type {
   border-top: solid black 1px;
   border-right: solid black 1px;
