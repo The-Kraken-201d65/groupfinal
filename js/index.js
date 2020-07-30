@@ -5,13 +5,12 @@ var totalClicks = 0;
 var roundsOfClicks = 10;
 
 //constructor
-function Location(name, src) {
+function Location(name, src, hearted, thumbDown) {
 
   this.name = name;
   this.src = src;
-  this.hearted = false;
-  this.thumbDown = false;
-
+  this.hearted = hearted || false;
+  this.thumbDown = thumbDown || false;
 
 
   Location.locationsArray.push(this);
