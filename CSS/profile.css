@@ -20,10 +20,10 @@ a {
   color: seagreen;
 }
 
-img:hover  {
+ul > li >img:hover  {
   background: url(/images/imgPlaceHold.png) no-repeat center center;
   background-size: cover;
-  background-image: url(/images/imgPlaceHold2.png); width: 350px; height: 200px;
+  background-image: url(/images/imgPlaceHold2.png); width: 250px; height: 150px;
 }
 
 
@@ -75,9 +75,19 @@ body > main > div > ul > li > img {
 }
 
 
+main > div > ul > li > img > p {
+  font-size: 25px;
+}
+
 .dark-mode {
   background-color: black;
   color: white;
+}
+
+
+form {
+  float: right;
+  margin: 0;
 }
 
 main > div > ul > li > img > p {
@@ -96,5 +106,6 @@ header > div > img {
 #aboutmeInput {
   width: 550px;
 } 
+
 
 

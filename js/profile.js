@@ -232,6 +232,29 @@ renderRemoveButton();
 var imageUlEl = document.querySelector('main > div > ul');
 imageUlEl.addEventListener('click', handleHeartedImageRemoval);
 
+//=============================
+//creating a review section to input site visted
+var createReviewSection = document.getElementById('addReview');
+createReviewSection.addEventListener('submit', createAReview);
+var reviewArray = [];
+
+function createAReview(event) {
+  event.preventDefault()
+  var review = event.target.reviewInput.value
+  var reviewComments = event.target.reviewInput.value
+  //saves the info
+  reviewArray.push(reviewComments + ' : ' + review)
+  var stringyReview = JSON.stringify(reviewArray)
+  localStorage.setItem('heartedimagelist', stringyReview);
+ 
+  // display info
+  var rvSection = document.getElementById('heartedimagelist')
+  var listItem = document.createElement('li');
+  listItem.textContent = reviewComments + ' : ' + review;
+  rvSection.appendChild(listItem);
+
+}
+//=========================
 
 
 var darkModeLocations= localStorage.getItem('dark-mode');
@@ -246,6 +269,9 @@ else{
     element.classList.toggle("dark-mode");
   }
 }
+
+
+
 
 
 
