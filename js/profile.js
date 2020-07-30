@@ -246,8 +246,13 @@ function createAReview(event) {
   var stringyReview = JSON.stringify(reviewArray)
   localStorage.setItem('reviewadding', stringyReview);
  
+
   // displaying 
   var rvSection = document.getElementById('reviewadding')
+
+  // display info
+//   var rvSection = document.getElementById('reviewsUploaded')
+
   var listItem = document.createElement('li');
   listItem.textContent = reviewComments;
   rvSection.appendChild(listItem);
