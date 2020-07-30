@@ -1,7 +1,5 @@
 'user strict';
 
-
-
 Location.locationsArray = [];
 
 
@@ -35,44 +33,129 @@ function retrieveLocationsFromStorage() {
 //===============================
 
 Location.prototype.displayHeartedImages = function(){
-  console.log(Location.locationsArray);
   for (var i = 0; i < Location.locationsArray.length; i ++){
     if( Location.locationsArray[i].hearted === true){
-      console.log('test');
       var heartedImages = document.getElementById('heartedimagelist');
       var listedImage = document.createElement('img');
       listedImage.src = Location.locationsArray[i].src;
       heartedImages.appendChild(listedImage);
-    } else if(Location.locationsArray[i].hearted  === false){
-      var heartedImages = document.getElementById('heartedimagelist');
-      var listedImage = document.createElement('img');
-      listedImage.textContent = '';
-      heartedImages.appendChild(listedImage);
+    } 
     }
 //================================
-      
-
-    }
-  }
-  retrieveLocationsFromStorage();
-  Location.locationsArray[0].displayHeartedImages(); 
-
-
-
+  } 
 
   
+  
 
-    
-    
-   
+  
+      
+if (localStorage.getItem('locationsArray')) {
+  retrieveLocationsFromStorage();
+  Location.locationsArray[0].displayHeartedImages();
+}
+
+
+
+// add submit button
+// add event listener to submit button, save to local storage
+// when submit button is hit, render allAvatar[i].src
+// create a function that renders allAvatar[i].src
+
+
+function addItemsToAvatar (){
+  var selectElement = document.getElementById('avatar-selection');
+  for (var i in Avatar.allAvatar) {
+    var optionElement = document.createElement('option');
+    optionElement.textContent = Avatar.allAvatar[i].name;
+    selectElement.appendChild(optionElement);
+    }
+  }
+
  
+var Avatar = function(src, name) {
+  this.src = src;
+  this.name = name;
+  Avatar.allAvatar.push(this);
+};
+Avatar.allAvatar = [];
+
+var avatarSubmit = document.getElementById('avatarCreate');
+avatarSubmit.addEventListener('submit', renderAvatarImage);
 
 
+function renderAvatarImage(event){
+  event.preventDefault();
+  var targetItems = document.getElementById('avatar-selection');
+  var itemsValue = targetItems.value;
 
+  var stringyAvatar = JSON.stringify(itemsValue);
+  localStorage.setItem('avatarDiv', stringyAvatar);
 
+  var deleteStuff = document.querySelector('#avatarDiv > img');
+  for(var i = 0; i < Avatar.allAvatar.length; i++){
+    if(itemsValue  === Avatar.allAvatar[i].name){
+      if(deleteStuff){
+      deleteStuff.remove();
+    }
+      var createdDiv = document.getElementById('avatarDiv');
+      var listItem = document.createElement('img');
+      listItem.src = Avatar.allAvatar[i].src;
+      createdDiv.appendChild(listItem);
+    }
+    }
+  }
 
+  function generateAvatar() {
+    new Avatar('images/heart.png', 'heart');
+    new Avatar('images/thumbdown.png', 'heart 2.0');
+    new Avatar('images/heart.png', 'heart 3.0');
+  }
+  
+  generateAvatar();
+  addItemsToAvatar();
 
+var avatarStored = localStorage.getItem('avatarDiv');
+console.log(avatarStored)
+if(avatarStored !== null){
+  var parsedAvatar = JSON.parse(avatarStored);
+  for(var i =0; i < Avatar.allAvatar.length; i++){ 
+    if(parsedAvatar === Avatar.allAvatar[i].name){
+      var createdDiv = document.getElementById('avatarDiv');
+      var listItem = document.createElement('img');
+      listItem.src = Avatar.allAvatar[i].src;
+      createdDiv.appendChild(listItem);
+    }
+  }
+}
 
+var aboutMeSection = document.getElementById('profileFormPls');
+aboutMeSection.addEventListener('submit', aboutmeContent);
+var informationArray = [];
+
+function aboutmeContent(event) {
+  event.preventDefault();
+  var bioInformation = event.target.commentInput.value;
+
+  informationArray.push(bioInformation)
+  var stringyComment = JSON.stringify(informationArray);
+  localStorage.setItem('aboutmeInput', stringyComment);
+  var cmSection = document.getElementById('aboutmeInput')
+  var listItem = document.createElement('li');
+  listItem.textContent = bioInformation;
+  cmSection.appendChild(listItem);
+
+}
+var commentFromStorage = localStorage.getItem('aboutmeInput');
+if(commentFromStorage !== null){
+  var parsedComment = JSON.parse(commentFromStorage);
+  informationArray = parsedComment;
+  for(var i = 0; i < informationArray.length; i++){
+    var cmSection = document.getElementById('aboutmeInput');
+    var listItem = document.createElement('li');
+    listItem.textContent = parsedComment[i];
+    cmSection.appendChild(listItem);
+  }
+}
 // this line fills Location.locationArray with the objects in local storage
 
 //============================
@@ -144,6 +227,22 @@ renderRemoveButton();
 
 var imageUlEl = document.querySelector('main > div > ul');
 imageUlEl.addEventListener('click', handleHeartedImageRemoval);
+
+
+
+var darkModeLocations= localStorage.getItem('dark-mode');
+if (darkModeLocations === null){
+  var darkMode = false;
+
+}
+else{
+  var darkMode = JSON.parse(darkModeLocations);
+  if (darkMode === true){
+    var element = document.body;
+    element.classList.toggle("dark-mode");
+  }
+}
+
 
 
 

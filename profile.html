@@ -6,20 +6,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="CSS/reset.css">
   <link rel="stylesheet" href="CSS/profile.css">
+  <style></style>
+  
   </head>
 
   <body>
     <header>
       <nav>
         <ul>
-          <li><a  href="/index.html"> Home |</a></li>
-          <li><a  href="/profile.html"> Profile |</a></li>
-          <li><a  href="/about.html"> About Us </a></li>
+          <li><a  href="index.html"> Home |</a></li>
+          <li><a  href="profile.html"> Profile |</a></li>
+          <li><a  href="about.html"> About Us |</a></li>
+          <li><a  href="data.html"> Data </a></li>
         </ul>
       </nav>
-      <div>username</div>
+      <div id="avatarDiv">
+        <form id="avatarCreate">
+          <fieldset>
+            <legend>Choose an Avatar</legend>
+            <label>
+             <select id="avatar-selection">
+             </select>
+             <input type ="submit">
+            </label>
+          </fieldset>
+        </form>
+      </div>
 
-      <div>about me</div>
+      <div id="aboutme">
+
+        <form id="profileFormPls">
+          <fieldset>
+            <legend></legend>
+              <label for="commentInput">About me</label>
+              <input type="text" name="commentInput" placeholder="Enter comments here">
+              <input type ="submit">
+          </fieldset>
+        </form>
+        <ul id = "aboutmeInput">
+          <li></li>
+        </ul>
+      </div>
     </header>
 
     <main>
@@ -27,12 +54,17 @@
       <div>
 
         <h2>Places you've </h2>
+       
 
         <img src="images/heart.png" height="50px" width="50px" alt="">
+       
+        
+
 
         <ul>
-
-          <li id = "heartedimagelist"></li>
+          
+          <li id = "heartedimagelist"></li> 
+          
         </ul>
       
       </div>
@@ -41,7 +73,9 @@
 
     <footer></footer>
 
+    <script src="js/profile.js"></script>
   </body>
 
-  <script src="js/profile.js"></script>
+
+ 
 </html>
