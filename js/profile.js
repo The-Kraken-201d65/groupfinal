@@ -49,9 +49,10 @@ Location.prototype.displayHeartedImages = function(){
 
   
       
-
+if (localStorage.getItem('locationsArray')) {
   retrieveLocationsFromStorage();
-  Location.locationsArray[0].displayHeartedImages(); 
+  Location.locationsArray[0].displayHeartedImages();
+}
 
 
 
@@ -226,6 +227,22 @@ renderRemoveButton();
 
 var imageUlEl = document.querySelector('main > div > ul');
 imageUlEl.addEventListener('click', handleHeartedImageRemoval);
+
+
+
+var darkModeLocations= localStorage.getItem('dark-mode');
+if (darkModeLocations === null){
+  var darkMode = false;
+
+}
+else{
+  var darkMode = JSON.parse(darkModeLocations);
+  if (darkMode === true){
+    var element = document.body;
+    element.classList.toggle("dark-mode");
+  }
+}
+
 
 
 

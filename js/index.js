@@ -6,13 +6,12 @@ var totalClicks = 0;
 var roundsOfClicks = 10;
 
 //constructor
-function Location(name, src) {
+function Location(name, src, hearted, thumbDown) {
 
   this.name = name;
   this.src = src;
-  this.hearted = false;
-  this.thumbDown = false;
-
+  this.hearted = hearted || false;
+  this.thumbDown = thumbDown || false;
 
 
   Location.locationsArray.push(this);
@@ -42,6 +41,7 @@ function clickHeartOnImage(event) {
 
 
   if(totalClicks === roundsOfClicks){
+    console.log('clickHeartOnImage-if');
 
     var imageList = document.getElementById('List-of-Images');
     imageList.innerHTML = '';
@@ -62,20 +62,24 @@ function clickHeartOnImage(event) {
 
     Location.locationsArray[0].saveToLocalStorage();
 
+
+    console.log('clickHeartOnImage-else');
+
     locationArrayIndex++;
-    displayLocationImage();
+    totalClicks++;
+    if(totalClicks !== roundsOfClicks){
+      displayLocationImage();
+    } else{
+      clickHeartOnImage();
+    }
+
 
   }
-
-  totalClicks++;
-
 
 }
 
 
 function clickThumbDownOnImage(event) {
-
-  // totalClicks++;
 
   if(totalClicks === roundsOfClicks){
 
@@ -98,13 +102,19 @@ function clickThumbDownOnImage(event) {
 
     Location.locationsArray[0].saveToLocalStorage();
 
+    console.log('clickThumbDownOnImage-else');
 
     locationArrayIndex++;
-    displayLocationImage();
+    totalClicks++;
+    if(totalClicks !== roundsOfClicks){
+      displayLocationImage();
+    } else{
+      clickThumbDownOnImage();
+    }
 
   }
 
-  totalClicks++;
+  // totalClicks++;
 
 }
 
@@ -149,6 +159,8 @@ if(parsedLocations !== null){
   var parsedcurrentIndexOfLastImage = JSON.parse(currentIndexOfLastImageFromLocalStorage);
 
   locationArrayIndex = parsedcurrentIndexOfLastImage;
+
+  totalClicks = parsedcurrentIndexOfLastImage;
 
 
   displayLocationImage();
@@ -196,6 +208,36 @@ function createAComment(event) {
   cmSection.appendChild(listItem);
 
 }
+
+
+  var darkModeLocations= localStorage.getItem('dark-mode');
+  if (darkModeLocations === null){
+    var darkMode = false;
+
+  }
+  else{
+    var darkMode = JSON.parse(darkModeLocations);
+    if (darkMode === true){
+      var element = document.body;
+      element.classList.toggle("dark-mode");
+    }
+  }
+
+
+  function myDarkMode() {
+    var element = document.body;
+    element.classList.toggle("dark-mode");
+    darkMode = !darkMode;
+    console.log(darkMode);
+
+
+    var locationDarkMode = JSON.stringify(darkMode);
+    localStorage.setItem('dark-mode', locationDarkMode);  
+    
+  }
+
+
+
 // display the saved info
 var commentFromStorage = localStorage.getItem('commentsection');
 if(commentFromStorage !== null){
@@ -210,10 +252,7 @@ if(commentFromStorage !== null){
 }
 
 
-function myDarkMode() {
-  var element = document.body;
-  element.classList.toggle("dark-mode");
-}
+
 
 
 
