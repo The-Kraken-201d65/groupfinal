@@ -31,7 +31,7 @@ header > div:first-of-type {
   border-top: solid black 1px;
   border-right: solid black 1px;
   border-left: solid black 1px;
-  padding-bottom: 62px;
+  padding-bottom: 11px;
   float: left;
 }
 
@@ -41,21 +41,16 @@ header > div > fieldset{
   padding-left: 5px;
 }
 
-header > div > img {
-  height: 25px;
-  width: 25px;
-}
-
 header > div:last-child {
   border: solid black 1px;
-  padding: 40px;
+  height: 110px;
 }
 
 body > main > div {
   border-bottom: solid black 1px;
   border-left: solid black 1px;
   border-right: solid black 1px;
-  padding-bottom: 300px;
+  padding-bottom: 600px;
 }
 
 body > main > div > h2 {
@@ -89,3 +84,15 @@ main > div > ul > li > img > p {
   font-size: 25px;
 }
 
+header > div > img {
+  height: 70px;
+  width: 90px;
+}
+
+#aboutme {
+  padding-top: 10px;
+}
+
+#aboutmeInput {
+  width: 550px;
+} 
