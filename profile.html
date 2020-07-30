@@ -1,81 +1,88 @@
 <!DOCTYPE html>
-  <head>
-    <title>Bisita.co</title>
-    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="CSS/reset.css">
+
+<head>
+  <title>Bisita.co</title>
+  <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="CSS/reset.css">
   <link rel="stylesheet" href="CSS/profile.css">
   <style></style>
-  
-  </head>
 
-  <body>
-    <header>
-      <nav>
-        <ul>
-          <li><a  href="index.html"> Home |</a></li>
-          <li><a  href="profile.html"> Profile |</a></li>
-          <li><a  href="about.html"> About Us |</a></li>
-          <li><a  href="data.html"> Data </a></li>
-        </ul>
-      </nav>
-      <div id="avatarDiv">
-        <form id="avatarCreate">
-          <fieldset>
-            <legend>Choose an Avatar</legend>
-            <label>
-             <select id="avatar-selection">
-             </select>
-             <input type ="submit">
-            </label>
-          </fieldset>
-        </form>
-      </div>
+</head>
 
-      <div id="aboutme">
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html"> Home |</a></li>
+        <li><a href="profile.html"> Profile |</a></li>
+        <li><a href="about.html"> About Us |</a></li>
+        <li><a href="data.html"> Data </a></li>
+      </ul>
+    </nav>
+    <div id="avatarDiv">
+      <form id="avatarCreate">
+        <fieldset>
+          <legend>Choose an Avatar</legend>
+          <label>
+            <select id="avatar-selection">
+            </select>
+            <input type="submit">
+          </label>
+        </fieldset>
+      </form>
+    </div>
 
-        <form id="profileFormPls">
-          <fieldset>
-            <legend></legend>
-              <label for="commentInput">About me</label>
-              <input type="text" name="commentInput" placeholder="Enter comments here">
-              <input type ="submit">
-          </fieldset>
-        </form>
-        <ul id = "aboutmeInput">
-          <li></li>
-        </ul>
-      </div>
-    </header>
+    <div id="aboutme">
 
-    <main>
+      <form id="profileFormPls">
+        <fieldset>
+          <legend></legend>
+          <label for="commentInput">About me</label>
+          <input type="text" name="commentInput" placeholder="Enter comments here">
+          <input type="submit">
+        </fieldset>
+      </form>
+      <ul id="aboutmeInput">
+        <li></li>
+      </ul>
+    </div>
+  </header>
 
-      <div>
+  <main>
+    <div>
+      <h2>Places you've </h2>
+      <img src="images/heart.png" height="50px" width="50px" alt="">
+      <ul>
+        <li id="heartedimagelist"></li>
+      </ul>
+    </div>
 
-        <h2>Places you've </h2>
-       
+  <div id = "reviewdiv">
+    <form id ="addReview">
+      <fieldset>
+        <legend></legend>
+        <label for="reviewInput">Please Leave a Review</label>
+        <input type="text" name="reviewInput" placeholder="Enter reviews here">
+        <input type="submit">
+      </fieldset>
+    </form>
+    <ul id="reviewsUploaded">
+      <li>
 
-        <img src="images/heart.png" height="50px" width="50px" alt="">
-       
-        
+      </li>
+    </ul>
+  </div>
+    
+
+  </main>
+
+  <footer></footer>
+
+  <script src="js/profile.js"></script>
+</body>
 
 
-        <ul>
-          
-          <li id = "heartedimagelist"></li> 
-          
-        </ul>
-      
-      </div>
 
-    </main>
-
-    <footer></footer>
-
-    <script src="js/profile.js"></script>
-  </body>
-
-
- 
 </html>

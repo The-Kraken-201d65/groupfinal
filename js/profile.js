@@ -106,9 +106,13 @@ function renderAvatarImage(event){
   }
 
   function generateAvatar() {
-    new Avatar('images/heart.png', 'heart');
-    new Avatar('images/thumbdown.png', 'heart 2.0');
-    new Avatar('images/heart.png', 'heart 3.0');
+    new Avatar('images/avatar.png', 'Woman 1');
+    new Avatar('images/avatar (1).png', 'Woman 2');
+    new Avatar('images/avatar (2).png', 'LightSide');
+    new Avatar('images/avatar (3).png', 'DarkSide');
+    new Avatar('images/avatar (4).png', 'Man 1');
+    new Avatar('images/profile2.png', 'Man 2');
+    new Avatar('images/basic.png', 'basic');
   }
   
   generateAvatar();
@@ -228,6 +232,29 @@ renderRemoveButton();
 var imageUlEl = document.querySelector('main > div > ul');
 imageUlEl.addEventListener('click', handleHeartedImageRemoval);
 
+//=============================
+//creating a review section to input site visted
+var createReviewSection = document.getElementById('addReview');
+createReviewSection.addEventListener('submit', createAReview);
+var reviewArray = [];
+
+function createAReview(event) {
+  event.preventDefault()
+  var review = event.target.reviewInput.value
+  var reviewComments = event.target.reviewInput.value
+  //saves the info
+  reviewArray.push(reviewComments + ' : ' + review)
+  var stringyReview = JSON.stringify(reviewArray)
+  localStorage.setItem('heartedimagelist', stringyReview);
+ 
+  // display info
+  var rvSection = document.getElementById('reviewsUploaded')
+  var listItem = document.createElement('li');
+  listItem.textContent = reviewComments + ' : ' + review;
+  rvSection.appendChild(listItem);
+
+}
+//=========================
 
 
 var darkModeLocations= localStorage.getItem('dark-mode');
@@ -242,6 +269,9 @@ else{
     element.classList.toggle("dark-mode");
   }
 }
+
+
+
 
 
 

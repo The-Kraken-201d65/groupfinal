@@ -1,7 +1,11 @@
 body {
   width: 960px;
+  height: 1080px;
   margin: 0 auto;
   background-color: bisque;
+  padding-left: 15px;
+  padding-right: 15px;
+  box-shadow: 0px 1px 11px 2px #888888;
 }
 
 nav {
@@ -20,10 +24,10 @@ a {
   color: seagreen;
 }
 
-img:hover  {
+ul > li >img:hover  {
   background: url(/images/imgPlaceHold.png) no-repeat center center;
   background-size: cover;
-  background-image: url(/images/imgPlaceHold2.png); width: 350px; height: 200px;
+  background-image: url(/images/imgPlaceHold2.png); width: 250px; height: 150px;
 }
 
 
@@ -31,7 +35,7 @@ header > div:first-of-type {
   border-top: solid black 1px;
   border-right: solid black 1px;
   border-left: solid black 1px;
-  padding-bottom: 62px;
+  padding-bottom: 11px;
   float: left;
 }
 
@@ -41,21 +45,16 @@ header > div > fieldset{
   padding-left: 5px;
 }
 
-header > div > img {
-  height: 25px;
-  width: 25px;
-}
-
 header > div:last-child {
   border: solid black 1px;
-  padding: 40px;
+  height: 110px;
 }
 
-body > main > div {
+body > main > div:nth-child(1) {
   border-bottom: solid black 1px;
   border-left: solid black 1px;
   border-right: solid black 1px;
-  padding-bottom: 300px;
+  padding-bottom: 600px;
 }
 
 body > main > div > h2 {
@@ -80,6 +79,10 @@ body > main > div > ul > li > img {
 }
 
 
+main > div > ul > li > img > p {
+  font-size: 25px;
+}
+
 .dark-mode {
   background-color: black;
   color: white;
@@ -89,3 +92,26 @@ main > div > ul > li > img > p {
   font-size: 25px;
 }
 
+header > div > img {
+  height: 70px;
+  width: 90px;
+}
+
+#aboutme {
+  padding-top: 10px;
+}
+
+#aboutmeInput {
+  width: 550px;
+} 
+
+body > main > div:nth-child(2) {
+  border-bottom: solid black 1px;
+  border-left: solid black 1px;
+  border-right: solid black 1px;
+  padding-bottom: 100px;
+}
+
+#addReview {
+  padding-top: 10px;
+}
