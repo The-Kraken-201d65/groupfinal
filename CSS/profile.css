@@ -33,7 +33,22 @@ header > div:first-of-type {
   border-top: solid black 1px;
   border-right: solid black 1px;
   border-left: solid black 1px;
-  padding-bottom: 2px;
+  padding-bottom: 62px;
+  float: left;
+}
+
+header > div > fieldset{
+  width: 200px;
+  font-size: large;
+  padding-left: 5px;
+}
+
+header > div > ul {
+  font-family: cursive;
+  color: blue;
+
+  padding: 5px;
+  width: 500px;
   float: left;
 }
 
@@ -44,7 +59,7 @@ header > div > img {
 
 header > div:last-child {
   border: solid black 1px;
-  padding: 40px;
+  padding-bottom: 135px;
 }
 
 body > main > div {
