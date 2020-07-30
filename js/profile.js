@@ -128,7 +128,34 @@ if(avatarStored !== null){
   }
 }
 
+var aboutMeSection = document.getElementById('profileFormPls');
+aboutMeSection.addEventListener('submit', aboutmeContent);
+var informationArray = [];
 
+function aboutmeContent(event) {
+  event.preventDefault();
+  var bioInformation = event.target.commentInput.value;
+
+  informationArray.push(bioInformation)
+  var stringyComment = JSON.stringify(informationArray);
+  localStorage.setItem('aboutmeInput', stringyComment);
+  var cmSection = document.getElementById('aboutmeInput')
+  var listItem = document.createElement('li');
+  listItem.textContent = bioInformation;
+  cmSection.appendChild(listItem);
+
+}
+var commentFromStorage = localStorage.getItem('aboutmeInput');
+if(commentFromStorage !== null){
+  var parsedComment = JSON.parse(commentFromStorage);
+  informationArray = parsedComment;
+  for(var i = 0; i < informationArray.length; i++){
+    var cmSection = document.getElementById('aboutmeInput');
+    var listItem = document.createElement('li');
+    listItem.textContent = parsedComment[i];
+    cmSection.appendChild(listItem);
+  }
+}
 // this line fills Location.locationArray with the objects in local storage
 
 //============================
