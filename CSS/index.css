@@ -34,13 +34,8 @@ body > div:first-of-type {
   padding-bottom: 9px;
 }
 
-article > img:first-of-type {
-  height: 250px;
-  width: 150px;
-}
-
 article > #thumbDown {
-  padding-left: 10px;
+  padding-left: 150px;
   padding-right: 10px;
   padding-bottom: 110px;
   height: 50px;
@@ -49,6 +44,7 @@ article > #thumbDown {
 
 article > div {
   display: inline-block;
+  padding-top: 10px;
   height: 300px;
   width: 500px;
 }
@@ -60,7 +56,7 @@ article > div > img {
 
 article > #hearted {
   padding-left: 10px;
-  padding-right: 10px;
+  padding-right: 150px;
   padding-bottom: 110px;
   height: 50px;
   width: 45px;
@@ -87,7 +83,7 @@ form > legend > input {
 
 body > div:last-of-type {
   font-family: cursive;
-  color: blue;
+  color:seagreen;
   border: solid black 1px;
   padding: 5px;
   width: 500px;
@@ -102,9 +98,19 @@ body > div:last-of-type > ul > li {
 
 button{
   float: right;
+  padding-left: 1px;
 }
 
 .dark-mode {
   background-color: black;
   color: white;
+}
+
+legend {
+  padding-top: 10px;
+}
+
+fieldset {
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
