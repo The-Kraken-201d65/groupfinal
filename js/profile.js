@@ -247,11 +247,21 @@ function createAReview(event) {
   localStorage.setItem('reviewadding', stringyReview);
  
 
+
+  // displaying 
+  var rvSection = document.getElementById('reviewadding')
+
+  // display info
+  var rvSection = document.getElementById('reviewsUploaded')
+// >>>>>>> e5ce0c09101468a23f224ee8520b55655c0a0526
+
+
   // displaying 
   var rvSection = document.getElementById('reviewadding')
 
   // display info
 //   var rvSection = document.getElementById('reviewsUploaded')
+
 
   var listItem = document.createElement('li');
   listItem.textContent = reviewComments;

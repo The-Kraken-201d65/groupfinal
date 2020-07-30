@@ -3,8 +3,13 @@
 var storageKeys = ['currentIndexOfLastImage', 'commentsection', 'locationsArray', 'dark-mode', 'aboutmeInput', 'avatarDiv'];
 
 function User(name, currentIndexOfLastImage, commentSection, locationsArray, darkMode, aboutMeInput, avatarDiv) {
+
+  this.name;
+  this.currentIndexOfLastImage = currentIndexOfLastImage || 0;
+
   this.name = name;
   this.currentIndexOfLastImage = currentIndexOfLastImage || null;
+
   this.commentSection = commentSection || null;
   this.locationsArray = locationsArray || null;
   this.darkMode = darkMode || false;
@@ -35,7 +40,11 @@ User.prototype.updateUserInfo = function(checkName) {
       storedValue = localStorage.getItem(storageKeys[i]);
       parsedValues.push(JSON.parse(storedValue));
     }
+
+    this.currentIndexOfLastImage = parsedValues[0] || 0;
+
     this.currentIndexOfLastImage = parsedValues[0] || null;
+
     this.commentSection = parsedValues[1] || null;
     this.locationsArray = parsedValues[2] || null;
     this.darkMode = parsedValues[3] || false;
@@ -57,6 +66,10 @@ function checkUsersForUpdate(checkName) {
     }
   }
   if (!foundUser) {
+
+    // 
+
+
     return foundUser;
   }
 }
@@ -72,7 +85,10 @@ User.prototype.setUserToLocalStorage = function() {
   }
 };
 
+
+
 // eslint-disable-next-line no-unused-vars
+
 function checkUsersForRetrieve(newName) {
   var foundUser = false;
   for (var i = 0; i < User.userArray.length; i++) {
@@ -92,5 +108,9 @@ function checkUsersForRetrieve(newName) {
 
 // sample usage
 // checkUsersForUpdate(previousUserName);
+
+// checkUsersForUpdate(newUserName);
+
 // checkUsersForRetrieve(newUserName);
+
 
