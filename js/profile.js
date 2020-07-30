@@ -107,10 +107,10 @@ function renderAvatarImage(event){
 
   function generateAvatar() {
     new Avatar('images/avatar.png', 'Woman 1');
-    new Avatar('images/avatar(1).png', 'Woman 2');
-    new Avatar('images/avatar(2).png', 'LightSide');
-    new Avatar('images/avatar(3).png', 'DarkSide');
-    new Avatar('images/avatar(4).png', 'Man 1');
+    new Avatar('images/avatar (1).png', 'Woman 2');
+    new Avatar('images/avatar (2).png', 'LightSide');
+    new Avatar('images/avatar (3).png', 'DarkSide');
+    new Avatar('images/avatar (4).png', 'Man 1');
     new Avatar('images/profile2.png', 'Man 2');
     new Avatar('images/basic.png', 'basic');
   }
