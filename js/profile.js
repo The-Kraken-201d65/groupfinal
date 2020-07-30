@@ -248,7 +248,7 @@ function createAReview(event) {
   localStorage.setItem('heartedimagelist', stringyReview);
  
   // display info
-  var rvSection = document.getElementById('heartedimagelist')
+  var rvSection = document.getElementById('reviewsUploaded')
   var listItem = document.createElement('li');
   listItem.textContent = reviewComments + ' : ' + review;
   rvSection.appendChild(listItem);
