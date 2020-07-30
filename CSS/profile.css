@@ -1,7 +1,11 @@
 body {
   width: 960px;
+  height: 1080px;
   margin: 0 auto;
   background-color: bisque;
+  padding-left: 15px;
+  padding-right: 15px;
+  box-shadow: 0px 1px 11px 2px #888888;
 }
 
 nav {
@@ -46,7 +50,7 @@ header > div:last-child {
   height: 110px;
 }
 
-body > main > div {
+body > main > div:nth-child(1) {
   border-bottom: solid black 1px;
   border-left: solid black 1px;
   border-right: solid black 1px;
@@ -84,12 +88,6 @@ main > div > ul > li > img > p {
   color: white;
 }
 
-
-form {
-  float: right;
-  margin: 0;
-}
-
 main > div > ul > li > img > p {
   font-size: 25px;
 }
@@ -107,4 +105,13 @@ header > div > img {
   width: 550px;
 } 
 
+body > main > div:nth-child(2) {
+  border-bottom: solid black 1px;
+  border-left: solid black 1px;
+  border-right: solid black 1px;
+  padding-bottom: 100px;
+}
 
+#addReview {
+  padding-top: 10px;
+}
