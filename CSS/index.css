@@ -103,6 +103,7 @@ body > div:last-of-type > ul > li {
 button{
   float: right;
 }
+
 .dark-mode {
   background-color: black;
   color: white;
