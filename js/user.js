@@ -1,8 +1,8 @@
 'use strict';
 
-var storageKeys = ['currentIndexOfLastImage', 'commentsection', 'locationsArray', 'dark-mode', 'aboutmeInput', 'avatarDiv'];
+var storageKeys = ['currentIndexOfLastImage', 'commentsection', 'locationsArray', 'dark-mode', 'aboutmeInput', 'avatarDiv', 'reviewadding'];
 
-function User(name, currentIndexOfLastImage, commentSection, locationsArray, darkMode, aboutMeInput, avatarDiv) {
+function User(name, currentIndexOfLastImage, commentSection, locationsArray, darkMode, aboutMeInput, avatarDiv, reviewAdding) {
   this.name = name;
   this.currentIndexOfLastImage = currentIndexOfLastImage || null;
   this.commentSection = commentSection || null;
@@ -10,6 +10,7 @@ function User(name, currentIndexOfLastImage, commentSection, locationsArray, dar
   this.darkMode = darkMode || false;
   this.aboutMeInput = aboutMeInput || null;
   this.avatarDiv = avatarDiv || null;
+  this.reviewAdding = reviewAdding || null;
   this.refArray = [];
 
   User.userArray.push(this);
@@ -25,6 +26,7 @@ User.prototype.fillRefArray = function() {
   this.refArray.push(this.darkMode);
   this.refArray.push(this.aboutMeInput);
   this.refArray.push(this.avatarDiv);
+  this.refArray.push(this.reviewAdding);
 };
 
 User.prototype.updateUserInfo = function(checkName) {
@@ -41,6 +43,8 @@ User.prototype.updateUserInfo = function(checkName) {
     this.darkMode = parsedValues[3] || false;
     this.aboutMeInput = parsedValues[4] || null;
     this.avatarDiv = parsedValues[5] || null;
+    this.reviewAdding = parsedValues[6] || null;
+
     return true;
   } else {
     return false;
