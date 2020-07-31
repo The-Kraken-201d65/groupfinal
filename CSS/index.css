@@ -6,11 +6,16 @@ body {
   padding-left: 15px;
   background-color: #f9f9f9;
   box-shadow: 0px 1px 11px 2px #888888;
+  border-radius: 25px;
+  margin: 5% auto 5% auto;
+  padding-bottom: 5%;
+  width: 60%;
 }
 
 header {
   background-color: #2e4c8c;
   padding-left: 15px;
+  border-radius: 25px;
 }
 
 nav {
@@ -27,6 +32,7 @@ nav > ul > li {
 a {
   text-decoration: none;
   color: #f9f9f9;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 h1 {
@@ -38,7 +44,7 @@ h1 {
 }
 
 body > div:first-of-type {
-  font-family: cursive;
+  font-family: Arial, Helvetica, sans-serif;
   padding-top: 10px;
   color: grey;
   padding-bottom: 9px;
@@ -92,7 +98,7 @@ form > legend > input {
 }
 
 body > div:last-of-type {
-  font-family: cursive;
+  font-family: Arial, Helvetica, sans-serif;
   color:grey;
   border: solid black 1px;
   padding: 5px;
@@ -127,4 +133,5 @@ fieldset {
 
 p {
   letter-spacing: 1px;
+  font-family: Arial, Helvetica, sans-serif;
 }
