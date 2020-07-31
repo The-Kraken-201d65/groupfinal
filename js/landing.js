@@ -3,7 +3,7 @@
 
 if (localStorage.getItem('userObjects')) {
   var tempArray = JSON.parse(localStorage.getItem('userObjects'));
-  User.userArray = [];
+  userArray = [];
   for (var i = 0; i < tempArray.length; i++) {
     new User(
       tempArray[i].name,
@@ -24,18 +24,19 @@ var linkButton = document.getElementById('takeMeToPlacesButton');
 linkButton.addEventListener('click', handleUserChanges);
 
 function handleUserChanges(event) {
-  var newUserName = document.getElementById('nameTextBox').value;
   if (localStorage.getItem('username')){
-    checkUsersForUpdate(JSON.parse(localStorage.getItem('username')));
+    var prevUserName = JSON.parse(localStorage.getItem('username'));
+    checkUsersForUpdate(prevUserName);
     console.log('found user and updated local storage');
   }
-
+  
+  var newUserName = document.getElementById('nameTextBox').value;
   if (checkUsersForRetrieve(newUserName)) {
     console.log('retrieved user');
   } else {
     console.log('created user');
   }
 
-  localStorage.setItem('userObjects', JSON.stringify(User.userArray));
+  localStorage.setItem('userObjects', JSON.stringify(userArray));
   localStorage.setItem('username', JSON.stringify(newUserName));
 }

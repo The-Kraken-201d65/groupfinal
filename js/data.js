@@ -5,6 +5,34 @@
 
 Location.locationsArray = [];
 
+// var userArray = [];
+
+if (localStorage.getItem('userObjects')) {
+  var tempArray = JSON.parse(localStorage.getItem('userObjects'));
+  userArray = [];
+  for (var i = 0; i < tempArray.length; i++) {
+    new User(
+      tempArray[i].name,
+      tempArray[i].currentIndexOfLastImage,
+      tempArray[i].commentSection,
+      tempArray[i].locationsArray,
+      tempArray[i].darkMode,
+      tempArray[i].aboutMeInput,
+      tempArray[i].avatarDiv,
+      tempArray[i].reviewAdding
+    );
+  }
+}
+
+if (localStorage.getItem('username')){
+  var prevUserName = JSON.parse(localStorage.getItem('username'));
+  checkUsersForUpdate(prevUserName);
+  console.log('found user and updated local storage');
+}
+
+
+
+
 // eslint-disable-next-line no-redeclare
 function Location(name, src, hearted) {
   this.name = name;
@@ -18,19 +46,6 @@ function Location(name, src, hearted) {
   }
 
   Location.locationsArray.push(this);
-}
-
-function retrieveLocationsFromStorage() {
-  // gets Location object list from storage
-  // iterates over list to instantiate Location objects into Location.locationsArray
-  var stringyLocations = localStorage.getItem('locationsArray');
-  var unlabeledLocations = JSON.parse(stringyLocations);
-  for (var i = 0; i < unlabeledLocations.length; i++) {
-    new Location(
-      unlabeledLocations[i].name,
-      unlabeledLocations[i].src,
-      unlabeledLocations[i].hearted);
-  }
 }
 
 function createSortByHeartArray(locArray) {
@@ -57,8 +72,6 @@ function createSortByHeartArray(locArray) {
 function renderPopularityChart() {
 
   var sortedByPopArray = createSortByHeartArray(Location.locationsArray);
-  console.log('original', Location.locationsArray);
-  console.log('result', sortedByPopArray);
 
   var locationLabels = [];
   for (var i = 0; i < sortedByPopArray.length; i++) {
@@ -115,7 +128,10 @@ function renderPopularityChart() {
       scales: {
         yAxes: [{
           ticks: {
-            beginAtZero: true
+            beginAtZero: true,
+            // reference for forcing integer scale
+            // https://stackoverflow.com/questions/15751571/change-the-y-axis-values-from-real-numbers-to-integers-in-chart-js
+            callback: function(value) {if (value % 1 === 0) {return value;}}
           }
         }]
       }
@@ -136,7 +152,37 @@ else{
     element.classList.toggle("dark-mode");
   }
 }
-retrieveLocationsFromStorage();
+
+
+
+new Location('kayangan-lake', 'images/1 kayangan-lake.jpg');
+new Location('river', 'images/2 river-natl-park.jpg');
+new Location('barracuda-lake', 'images/3 barracuda lake.jpg');
+new Location('tubbataha Reef', 'images/4 tubbataha-reef-philippines.jpg');
+new Location('Nacpan beach', 'images/5 Nacpan-Beach-Palawan-Cover-min.jpg');
+new Location('Big Lagoon', 'images/6 big lagoon.jpg');
+new Location('Port Barton', 'images/7 Port_Barton-aerial-10.jpg');
+new Location('Twin Lagoon', 'images/8 Twin-Lagoon-El-Nido-Palawan-Philippines.jpg');
+new Location('Ugong Rock Adventures', 'images/9 ugong rock adventures.jpg');
+new Location('Estrella', 'images/10 estrella falls.jpg');
+
+
+console.log(Location.locationsArray);
+console.log(userArray);
+for (var userIndex = 0; userIndex < userArray.length; userIndex++) {
+  if (userArray[userIndex].locationsArray) {
+    for (var locationIndex = 0; locationIndex < userArray[userIndex].locationsArray.length; locationIndex++) {
+      if (userArray[userIndex].locationsArray[locationIndex].hearted) {
+        for (var sumIndex = 0; sumIndex < Location.locationsArray.length; sumIndex++) {
+          if (Location.locationsArray[sumIndex].name === userArray[userIndex].locationsArray[locationIndex].name) {
+            Location.locationsArray[sumIndex].totalHearted++;
+          }
+        }
+      }
+    }
+  }
+}
+
 renderPopularityChart();
 
 
