@@ -12,7 +12,8 @@ if (localStorage.getItem('userObjects')) {
       tempArray[i].locationsArray,
       tempArray[i].darkMode,
       tempArray[i].aboutMeInput,
-      tempArray[i].avatarDiv
+      tempArray[i].avatarDiv,
+      tempArray[i].reviewAdding
     );
   }
 }
@@ -37,6 +38,4 @@ function handleUserChanges(event) {
 
   localStorage.setItem('userObjects', JSON.stringify(User.userArray));
   localStorage.setItem('username', JSON.stringify(newUserName));
-
-
 }
