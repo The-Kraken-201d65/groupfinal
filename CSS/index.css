@@ -51,7 +51,7 @@ body > div:first-of-type {
 }
 
 article > #thumbDown {
-  padding-left: 150px;
+  padding-left: 200px;
   padding-right: 10px;
   padding-bottom: 110px;
   height: 50px;
@@ -102,7 +102,7 @@ body > div:last-of-type {
   color:grey;
   border: solid black 1px;
   padding: 5px;
-  width: 500px;
+  width: 600px;
   float: left;
 }
 
@@ -135,3 +135,4 @@ p {
   letter-spacing: 1px;
   font-family: Arial, Helvetica, sans-serif;
 }
+
