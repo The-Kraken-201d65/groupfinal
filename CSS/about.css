@@ -1,6 +1,6 @@
 body {
-  width: 960px;
-  height: 1200px;
+  width: 80%;
+  height: 80%;
   margin: 0 auto;
   background-color: #f9f9f9;
   padding-left: 15px;
@@ -48,6 +48,9 @@ img {
 
 body > ul > li {
   overflow: hidden;
+  margin-left: 25%;
+  margin-top: 50px;
+  line-height: 30px;
 }
 
 p {
@@ -59,11 +62,18 @@ h2 {
   font-size: 25px;
   color: #888888;
   padding-left: 20px;
+  margin-top: 75px;
 }
 
+footer{
+  text-align: center;
+}
 
 footer > p {
   color: #888888;
+  margin-left: 25%;
+  line-height: 30px;
+
 }
 
 .dark-mode {
