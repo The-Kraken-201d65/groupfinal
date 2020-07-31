@@ -1,6 +1,7 @@
 'use strict';
 
 var storageKeys = ['currentIndexOfLastImage', 'commentsection', 'locationsArray', 'dark-mode', 'aboutmeInput', 'avatarDiv', 'reviewadding'];
+var userArray = [];
 
 function User(name, currentIndexOfLastImage, commentSection, locationsArray, darkMode, aboutMeInput, avatarDiv, reviewAdding) {
   this.name = name;
@@ -8,16 +9,14 @@ function User(name, currentIndexOfLastImage, commentSection, locationsArray, dar
 
   this.commentSection = commentSection || null;
   this.locationsArray = locationsArray || null;
-  this.darkMode = darkMode || false;
+  this.darkMode = darkMode || null;
   this.aboutMeInput = aboutMeInput || null;
   this.avatarDiv = avatarDiv || null;
   this.reviewAdding = reviewAdding || null;
   this.refArray = [];
 
-  User.userArray.push(this);
+  userArray.push(this);
 }
-
-User.userArray = [];
 
 User.prototype.fillRefArray = function() {
   this.refArray = [];
@@ -45,7 +44,7 @@ User.prototype.updateUserInfo = function(checkName) {
 
     this.commentSection = parsedValues[1] || null;
     this.locationsArray = parsedValues[2] || null;
-    this.darkMode = parsedValues[3] || false;
+    this.darkMode = parsedValues[3] || null;
     this.aboutMeInput = parsedValues[4] || null;
     this.avatarDiv = parsedValues[5] || null;
     this.reviewAdding = parsedValues[6] || null;
@@ -59,8 +58,8 @@ User.prototype.updateUserInfo = function(checkName) {
 // eslint-disable-next-line no-unused-vars
 function checkUsersForUpdate(checkName) {
   var foundUser = false;
-  for (var i = 0; i < User.userArray.length; i++) {
-    if (User.userArray[i].updateUserInfo(checkName)) {
+  for (var i = 0; i < userArray.length; i++) {
+    if (userArray[i].updateUserInfo(checkName)) {
       foundUser = true;
       return foundUser;
     }
@@ -91,10 +90,15 @@ User.prototype.setUserToLocalStorage = function() {
 
 function checkUsersForRetrieve(newName) {
   var foundUser = false;
-  for (var i = 0; i < User.userArray.length; i++) {
-    if (User.userArray[i].name === newName) {
+  for (var i = 0; i < userArray.length; i++) {
+    if (userArray[i].name === newName) {
       foundUser = true;
-      User.userArray[i].setUserToLocalStorage();
+      var globalComment = JSON.parse(localStorage.getItem('commentsection'));
+      localStorage.clear();
+      userArray[i].setUserToLocalStorage();
+      if (globalComment) {
+        localStorage.setItem('commentsection', JSON.stringify(globalComment))
+      }
       return foundUser;
     }
   }
@@ -102,7 +106,12 @@ function checkUsersForRetrieve(newName) {
     new User(newName);
     // clearing local storage
     // https://stackoverflow.com/questions/7667958/clearing-localstorage-in-javascript
+    var globalComment = JSON.parse(localStorage.getItem('commentsection'));
     localStorage.clear();
+    if (globalComment) {
+      localStorage.setItem('commentsection', JSON.stringify(globalComment))
+    }
+    return foundUser;
   }
 }
 
