@@ -172,11 +172,11 @@ if(parsedLocations !== null){
   new Location('barracuda-lake', 'images/3 barracuda lake.jpg');
   new Location('tubbataha Reef', 'images/4 tubbataha-reef-philippines.jpg');
   new Location('Nacpan beach', 'images/5 Nacpan-Beach-Palawan-Cover-min.jpg');
-  new Location('Nacpan beach', 'images/6 big lagoon.jpg');
-  new Location('Nacpan beach', 'images/7 Port_Barton-aerial-10.jpg');
-  new Location('Nacpan beach', 'images/8 Twin-Lagoon-El-Nido-Palawan-Philippines.jpg');
-  new Location('Nacpan beach', 'images/9 ugong rock adventures.jpg');
-  new Location('Nacpan beach', 'images/10 estrella falls.jpg');
+  new Location('Big Lagoon', 'images/6 big lagoon.jpg');
+  new Location('Port Barton', 'images/7 Port_Barton-aerial-10.jpg');
+  new Location('Twin Lagoon', 'images/8 Twin-Lagoon-El-Nido-Palawan-Philippines.jpg');
+  new Location('Ugong Rock Adventures', 'images/9 ugong rock adventures.jpg');
+  new Location('Estrella', 'images/10 estrella falls.jpg');
 
 
   displayLocationImage();
@@ -209,7 +209,8 @@ function createAComment(event) {
 
 }
 
-
+//for dark mode
+//https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_toggle_dark_mode
   var darkModeLocations= localStorage.getItem('dark-mode');
   if (darkModeLocations === null){
     var darkMode = false;

@@ -233,30 +233,58 @@ var imageUlEl = document.querySelector('main > div > ul');
 imageUlEl.addEventListener('click', handleHeartedImageRemoval);
 
 //=============================
-//creating a review section to input site visted
+//creating a review section to input review for site visted
 var createReviewSection = document.getElementById('addReview');
 createReviewSection.addEventListener('submit', createAReview);
 var reviewArray = [];
 
 function createAReview(event) {
   event.preventDefault()
-  var review = event.target.reviewInput.value
   var reviewComments = event.target.reviewInput.value
-  //saves the info
-  reviewArray.push(reviewComments + ' : ' + review)
+  //saving data
+  reviewArray.push(reviewComments);
   var stringyReview = JSON.stringify(reviewArray)
-  localStorage.setItem('heartedimagelist', stringyReview);
+  localStorage.setItem('reviewadding', stringyReview);
  
+
+
+  // displaying 
+  var rvSection = document.getElementById('reviewadding')
+
   // display info
   var rvSection = document.getElementById('reviewsUploaded')
+// >>>>>>> e5ce0c09101468a23f224ee8520b55655c0a0526
+
+
+  // displaying 
+  var rvSection = document.getElementById('reviewadding')
+
+  // display info
+//   var rvSection = document.getElementById('reviewsUploaded')
+
+
   var listItem = document.createElement('li');
-  listItem.textContent = reviewComments + ' : ' + review;
+  listItem.textContent = reviewComments;
   rvSection.appendChild(listItem);
 
 }
+var reviewFromStorage = localStorage.getItem('reviewadding');
+console.log(reviewFromStorage);
+if(reviewFromStorage !== null){
+  var parsedReview = JSON.parse(reviewFromStorage);
+  reviewArray = parsedReview;
+  console.log(parsedReview);
+  for(var i = 0; i < reviewArray.length; i++){
+    var rvSection = document.getElementById('reviewadding');
+    var listItem = document.createElement('li');
+    listItem.textContent = parsedReview[i];
+    rvSection.appendChild(listItem);
+  }
+}
 //=========================
 
-
+//for dark mode
+//https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_toggle_dark_mode
 var darkModeLocations= localStorage.getItem('dark-mode');
 if (darkModeLocations === null){
   var darkMode = false;

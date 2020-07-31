@@ -1,15 +1,17 @@
 'use strict';
 
-var storageKeys = ['currentIndexOfLastImage', 'commentsection', 'locationsArray', 'dark-mode', 'aboutmeInput', 'avatarDiv'];
+var storageKeys = ['currentIndexOfLastImage', 'commentsection', 'locationsArray', 'dark-mode', 'aboutmeInput', 'avatarDiv', 'reviewadding'];
 
-function User(name, currentIndexOfLastImage, commentSection, locationsArray, darkMode, aboutMeInput, avatarDiv) {
-  this.name;
-  this.currentIndexOfLastImage = currentIndexOfLastImage || 0;
+function User(name, currentIndexOfLastImage, commentSection, locationsArray, darkMode, aboutMeInput, avatarDiv, reviewAdding) {
+  this.name = name;
+  this.currentIndexOfLastImage = currentIndexOfLastImage || null;
+
   this.commentSection = commentSection || null;
   this.locationsArray = locationsArray || null;
   this.darkMode = darkMode || false;
   this.aboutMeInput = aboutMeInput || null;
   this.avatarDiv = avatarDiv || null;
+  this.reviewAdding = reviewAdding || null;
   this.refArray = [];
 
   User.userArray.push(this);
@@ -25,6 +27,7 @@ User.prototype.fillRefArray = function() {
   this.refArray.push(this.darkMode);
   this.refArray.push(this.aboutMeInput);
   this.refArray.push(this.avatarDiv);
+  this.refArray.push(this.reviewAdding);
 };
 
 User.prototype.updateUserInfo = function(checkName) {
@@ -35,12 +38,18 @@ User.prototype.updateUserInfo = function(checkName) {
       storedValue = localStorage.getItem(storageKeys[i]);
       parsedValues.push(JSON.parse(storedValue));
     }
+
     this.currentIndexOfLastImage = parsedValues[0] || 0;
+
+    this.currentIndexOfLastImage = parsedValues[0] || null;
+
     this.commentSection = parsedValues[1] || null;
     this.locationsArray = parsedValues[2] || null;
     this.darkMode = parsedValues[3] || false;
     this.aboutMeInput = parsedValues[4] || null;
     this.avatarDiv = parsedValues[5] || null;
+    this.reviewAdding = parsedValues[6] || null;
+
     return true;
   } else {
     return false;
@@ -57,7 +66,10 @@ function checkUsersForUpdate(checkName) {
     }
   }
   if (!foundUser) {
+
     // 
+
+
     return foundUser;
   }
 }
@@ -72,6 +84,10 @@ User.prototype.setUserToLocalStorage = function() {
     }
   }
 };
+
+
+
+// eslint-disable-next-line no-unused-vars
 
 function checkUsersForRetrieve(newName) {
   var foundUser = false;
@@ -92,5 +108,9 @@ function checkUsersForRetrieve(newName) {
 
 // sample usage
 // checkUsersForUpdate(previousUserName);
+
 // checkUsersForUpdate(newUserName);
+
+// checkUsersForRetrieve(newUserName);
+
 
